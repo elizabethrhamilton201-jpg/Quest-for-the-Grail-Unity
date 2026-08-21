@@ -14,6 +14,13 @@ public class PlayerController : MonoBehaviour
 
     // declaring a speed variable that can be edited in the inspector
     [SerializeField] private int speed;
+    // reference to the animator
+    [SerializeField] private Animator anim;
+    // reference to the sprite renderer
+    [SerializeField] private SpriteRenderer playerSprite;
+
+    // reference to paramater set in Animator window
+    private const string IS_WALK_PARAM = "IsWalk";
 
     private void Awake()
     {
@@ -44,6 +51,21 @@ public class PlayerController : MonoBehaviour
 
         // normalizes the values of the Vector2 outputs so that they are flat values (e.g. 1, -1 etc) to smooth out movement. Assigns the floats x and z to the values of the Vector3. 
         movement = new Vector3(x, 0, z).normalized;
+
+        // sets bool to true if movement values are not zero. This should mean that whenever the sprite walks, the animation transitions from idel to walk
+        anim.SetBool(IS_WALK_PARAM, movement!=Vector3.zero);
+
+        // if player moves left, flips sprite
+        if(x!= 0 && x<0)
+        {
+            playerSprite.flipX = true;
+        }
+
+        // if player moves right, resets sprite to default orientation
+        if(x!= 0 && x>0)
+        {
+            playerSprite.flipX = false;
+        }
     }
 
     private void FixedUpdate()

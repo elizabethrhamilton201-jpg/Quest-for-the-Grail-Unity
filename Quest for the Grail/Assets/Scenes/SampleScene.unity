@@ -705,6 +705,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   speed: 3
+  anim: {fileID: 1820689365}
+  playerSprite: {fileID: 1820689364}
 --- !u!4 &1818585744
 Transform:
   m_ObjectHideFlags: 0
