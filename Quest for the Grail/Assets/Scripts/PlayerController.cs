@@ -1,20 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     // declares the PlayerControls Input Actions as a variable for reference in the script
     private PlayerControls playerControls;
-
     // reference to the gameObject's Rigidbody
     private Rigidbody rb;
     // reference to the Vector3 value used to determine movement
     private Vector3 movement;
+
     // bool for if player is in grass trigger or not
     private bool movingInGrass;
     // tracks steps taken in grass
     private float stepTimer;
+    // variable to store random number between a min and max number
+    private int stepsToEncounter;
 
     // declaring a speed variable that can be edited in the inspector
     [SerializeField] private int speed;
@@ -26,16 +29,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask grassLayer;
     // int that counts how many steps are taken inside grass triggers
     [SerializeField] private int stepsInGrass;
+    // minimum range of steps for encounter
+    [SerializeField] private int minStepsToEncounter;
+    // maximum range of steps for encounter
+    [SerializeField] private int maxStepsToEncounter;
 
     // reference to paramater set in Animator window
     private const string IS_WALK_PARAM = "IsWalk";
+    // reference to BattleScene asset
+    private const string BATTLE_SCENE = "BattleScene";
     // time spent in grass before a step is logged
-    private const float timePerStep = 0.5f;
+    private const float TIME_PER_STEP = 0.5f;
 
     private void Awake()
     {
         // assigns the playerControls variable the PlayerControls Input Actions on Awake
         playerControls = new PlayerControls();
+
+        CalculateStepsToNextEncounter();
     }
 
     private void OnEnable()
@@ -57,7 +68,7 @@ public class PlayerController : MonoBehaviour
         float z = playerControls.Player.Move.ReadValue<Vector2>().y;
 
         // outputs to the console the values of the Vector2/floats
-        Debug.Log(x + "," + z);
+        //Debug.Log(x + "," + z);
 
         // normalizes the values of the Vector2 outputs so that they are flat values (e.g. 1, -1 etc) to smooth out movement. Assigns the floats x and z to the values of the Vector3. 
         movement = new Vector3(x, 0, z).normalized;
@@ -93,14 +104,23 @@ public class PlayerController : MonoBehaviour
         {   
             // once timer reaches a threshold, increment stepsInGrass and reset the timer
             stepTimer += Time.fixedDeltaTime;
-            if(stepTimer > timePerStep)
+            if(stepTimer > TIME_PER_STEP)
             {
                 stepsInGrass++;
                 stepTimer = 0;
 
-                // check to see if we have reached an encounter
-                // change the scene
+                if(stepsInGrass >= stepsToEncounter)
+                {
+                    //Debug.Log("Change Scene Now");
+
+                    SceneManager.LoadScene(BATTLE_SCENE);
+                }
             }
         }
+    }
+
+    private void CalculateStepsToNextEncounter()
+    {
+        stepsToEncounter = Random.Range(minStepsToEncounter, maxStepsToEncounter);
     }  
 }
