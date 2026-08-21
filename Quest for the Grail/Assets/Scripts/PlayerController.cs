@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     // reference to the Vector3 value used to determine movement
     private Vector3 movement;
+    // bool for if player is in grass trigger or not
+    private bool movingInGrass;
+    // tracks steps taken in grass
+    private float stepTimer;
 
     // declaring a speed variable that can be edited in the inspector
     [SerializeField] private int speed;
@@ -18,9 +22,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator anim;
     // reference to the sprite renderer
     [SerializeField] private SpriteRenderer playerSprite;
+    // reference to grass layer in inspector
+    [SerializeField] private LayerMask grassLayer;
+    // int that counts how many steps are taken inside grass triggers
+    [SerializeField] private int stepsInGrass;
 
     // reference to paramater set in Animator window
     private const string IS_WALK_PARAM = "IsWalk";
+    // time spent in grass before a step is logged
+    private const float timePerStep = 0.5f;
 
     private void Awake()
     {
@@ -72,5 +82,25 @@ public class PlayerController : MonoBehaviour
     {
         // moves the players rigidbody based on the movement and speed values. 
         rb.MovePosition(transform.position + movement * speed * Time.fixedDeltaTime);
-    }
+
+        // uses an overlap sphere to detect if player is in grass triggers (gets array of how many colliders we a re colliding with)
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 1, grassLayer);
+        // sets bool depending on whether or not player is moving in grass layer (if the player is colliding with at least one collider and is giving movement input, we must be movingInGrass)
+        movingInGrass = colliders.Length!=0 && movement !=Vector3.zero;
+
+        // if we are moving in grass, start a timer
+        if(movingInGrass == true)
+        {   
+            // once timer reaches a threshold, increment stepsInGrass and reset the timer
+            stepTimer += Time.fixedDeltaTime;
+            if(stepTimer > timePerStep)
+            {
+                stepsInGrass++;
+                stepTimer = 0;
+
+                // check to see if we have reached an encounter
+                // change the scene
+            }
+        }
+    }  
 }
