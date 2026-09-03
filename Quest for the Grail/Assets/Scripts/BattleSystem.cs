@@ -94,6 +94,10 @@ public class BattleSystem : MonoBehaviour
         if(allBattlers[i].IsPlayer == true)
         {
             BattleEntities currAttacker = allBattlers[i];
+            if(allBattlers[currAttacker.Target].IsPlayer == true || currAttacker.Target >= allBattlers.Count)
+            {
+                currAttacker.SetTarget(GetRandomEnemy());
+            }
             BattleEntities currTarget = allBattlers[currAttacker.Target];
             // attack selected enemy (attack action)
             AttackAction(currAttacker, currTarget);
@@ -263,14 +267,14 @@ public class BattleSystem : MonoBehaviour
         List<int> enemies = new List<int>();
         // find all the enemioes then add them to the list
         for (int i = 0; i < allBattlers.Count; i++)
-        {
+       {
             if(allBattlers[i].IsPlayer == false)
             {
                 enemies.Add(i);
             }
-            // return a random enemy
-            return enemies[Random.Range(0, enemies.Count)];
         }
+        // return a random enemy
+        return enemies[Random.Range(0, enemies.Count)];
     }
 
 }
