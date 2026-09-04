@@ -5,20 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    // declares the PlayerControls Input Actions as a variable for reference in the script
-    private PlayerControls playerControls;
-    // reference to the gameObject's Rigidbody
-    private Rigidbody rb;
-    // reference to the Vector3 value used to determine movement
-    private Vector3 movement;
-
-    // bool for if player is in grass trigger or not
-    private bool movingInGrass;
-    // tracks steps taken in grass
-    private float stepTimer;
-    // variable to store random number between a min and max number
-    private int stepsToEncounter;
-
     // declaring a speed variable that can be edited in the inspector
     [SerializeField] private int speed;
     // reference to the animator
@@ -33,6 +19,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int minStepsToEncounter;
     // maximum range of steps for encounter
     [SerializeField] private int maxStepsToEncounter;
+
+    // declares the PlayerControls Input Actions as a variable for reference in the script
+    private PlayerControls playerControls;
+    // reference to the gameObject's Rigidbody
+    private Rigidbody rb;
+    // reference to the Vector3 value used to determine movement
+    private Vector3 movement;
+    // bool for if player is in grass trigger or not
+    private bool movingInGrass;
+    // tracks steps taken in grass
+    private float stepTimer;
+    // variable to store random number between a min and max number
+    private int stepsToEncounter;
+    private PartyManager partyManager;
 
     // reference to paramater set in Animator window
     private const string IS_WALK_PARAM = "IsWalk";
@@ -55,10 +55,22 @@ public class PlayerController : MonoBehaviour
         playerControls.Enable();
     }
 
+    private void OnDisable()
+    {
+        playerControls.Disable();
+    }
+
     private void Start()
     {
         // gets the player's Rigidbody and assigns it to the rb variable
         rb = gameObject.GetComponent<Rigidbody>();
+        partyManager = GameObject.FindAnyObjectByType<PartyManager>();
+        // if we have a position saved
+        if(partyManager.GetPosition() != Vector3.zero)
+        {
+            transform.position = partyManager.GetPosition();
+        }
+        // move the player
     }
 
     void Update()
@@ -112,6 +124,8 @@ public class PlayerController : MonoBehaviour
                 if(stepsInGrass >= stepsToEncounter)
                 {
                     //Debug.Log("Change Scene Now");
+
+                    partyManager.SetPosition(transform.position);
 
                     SceneManager.LoadScene(BATTLE_SCENE);
                 }

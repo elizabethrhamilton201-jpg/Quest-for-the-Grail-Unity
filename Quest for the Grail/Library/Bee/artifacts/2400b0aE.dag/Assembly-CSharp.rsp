@@ -490,6 +490,7 @@
 "Assets/InputSettings/PlayerControls.cs"
 "Assets/Scripts/BattleSystem.cs"
 "Assets/Scripts/BattleVisuals.cs"
+"Assets/Scripts/EncounterSystem.cs"
 "Assets/Scripts/EnemyInfo.cs"
 "Assets/Scripts/EnemyManager.cs"
 "Assets/Scripts/PartyManager.cs"
