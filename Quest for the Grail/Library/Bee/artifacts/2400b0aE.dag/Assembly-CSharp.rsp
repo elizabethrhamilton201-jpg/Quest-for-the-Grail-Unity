@@ -496,6 +496,7 @@
 "Assets/Scripts/EnemyInfo.cs"
 "Assets/Scripts/EnemyManager.cs"
 "Assets/Scripts/JoinableCharacterScript.cs"
+"Assets/Scripts/MemberFollowAI.cs"
 "Assets/Scripts/PartyManager.cs"
 "Assets/Scripts/PartyMemberInfo.cs"
 "Assets/Scripts/PlayerController.cs"

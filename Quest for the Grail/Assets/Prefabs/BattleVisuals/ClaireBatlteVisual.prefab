@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1905938912927952725}
   - component: {fileID: 6061025123383836083}
   - component: {fileID: 3385414846041701072}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 775780095298596434}
   - component: {fileID: 5035402350850485640}
   - component: {fileID: 5552117652194826139}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 8826880359898603496}
   - component: {fileID: 6397158730809230626}
   - component: {fileID: 6401056274555520425}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 6766982646607976270}
   - component: {fileID: 5226816254392317417}
   - component: {fileID: 5837153656946435674}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +387,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5894505183947582758}
   - component: {fileID: 6946031825174037054}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: HealthbarSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,7 +476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6028302090001585360}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,7 +512,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6977869827687264073}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +550,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5854557119270260540}
   - component: {fileID: 8273269426063160599}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ClaireBatlteVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,13 +600,13 @@ GameObject:
   - component: {fileID: 8299259410441818571}
   - component: {fileID: 9108100723752347459}
   - component: {fileID: 7865505235171990192}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8299259410441818571
 Transform:
   m_ObjectHideFlags: 0
@@ -690,7 +690,7 @@ GameObject:
   - component: {fileID: 1991897898513730171}
   - component: {fileID: 928265186464732554}
   - component: {fileID: 402658414281417925}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Claire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -722,7 +722,7 @@ SpriteRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4183700749793307320}
   m_Enabled: 1
-  m_CastShadows: 0
+  m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -739,7 +739,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: -876546973899608171, guid: ecb398b7826d65af6b9594e0615ac55b, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -804,7 +804,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 971931161831670599}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -842,7 +842,7 @@ GameObject:
   - component: {fileID: 8528996640654673758}
   - component: {fileID: 4169291212710615477}
   - component: {fileID: 4336939717518640477}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -980,7 +980,7 @@ GameObject:
   - component: {fileID: 6280451200586530141}
   - component: {fileID: 9105778402701061997}
   - component: {fileID: 7708400502456466749}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: BattleVisualCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1084,7 +1084,7 @@ GameObject:
   - component: {fileID: 6432033098308669290}
   - component: {fileID: 4455428355255946184}
   - component: {fileID: 8491786093021607611}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1159,7 +1159,7 @@ GameObject:
   - component: {fileID: 707022479970198902}
   - component: {fileID: 1332048571159419914}
   - component: {fileID: 4969543006621007285}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

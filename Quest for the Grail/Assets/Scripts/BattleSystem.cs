@@ -336,7 +336,7 @@ public class BattleSystem : MonoBehaviour
         // find all the party members then add them to list
         for (int i = 0; i < allBattlers.Count; i++)
         {
-            if(allBattlers[i].IsPlayer == true)
+            if(allBattlers[i].IsPlayer == true && allBattlers[i].CurrHealth > 0)
             {
                 partyMembers.Add(i);
             }
@@ -352,7 +352,7 @@ public class BattleSystem : MonoBehaviour
         // find all the enemies then add them to the list
         for (int i = 0; i < allBattlers.Count; i++)
        {
-            if(allBattlers[i].IsPlayer == false)
+            if(allBattlers[i].IsPlayer == false && allBattlers[i].CurrHealth > 0)
             {
                 enemies.Add(i);
             }
