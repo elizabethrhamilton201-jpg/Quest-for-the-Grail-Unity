@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviour
         // move the player
     }
 
+
     void Update()
     {
         // listens for whether or not the player has pressed the movement keys and assigns the pressed value to the floats
@@ -86,7 +87,7 @@ public class PlayerController : MonoBehaviour
         // normalizes the values of the Vector2 outputs so that they are flat values (e.g. 1, -1 etc) to smooth out movement. Assigns the floats x and z to the values of the Vector3. 
         movement = new Vector3(x, 0, z).normalized;
 
-        // sets bool to true if movement values are not zero. This should mean that whenever the sprite walks, the animation transitions from idel to walk
+        // sets bool to true if movement values are not zero. This should mean that whenever the sprite walks, the animation transitions from idle to walk
         anim.SetBool(IS_WALK_PARAM, movement!=Vector3.zero);
 
         // if player moves left, flips sprite
@@ -107,7 +108,7 @@ public class PlayerController : MonoBehaviour
         // moves the players rigidbody based on the movement and speed values. 
         rb.MovePosition(transform.position + movement * speed * Time.fixedDeltaTime);
 
-        // uses an overlap sphere to detect if player is in grass triggers (gets array of how many colliders we a re colliding with)
+        // uses an overlap sphere to detect if player is in grass triggers (gets array of how many colliders we are colliding with)
         Collider[] colliders = Physics.OverlapSphere(transform.position, 1, grassLayer);
         // sets bool depending on whether or not player is moving in grass layer (if the player is colliding with at least one collider and is giving movement input, we must be movingInGrass)
         movingInGrass = colliders.Length!=0 && movement !=Vector3.zero;

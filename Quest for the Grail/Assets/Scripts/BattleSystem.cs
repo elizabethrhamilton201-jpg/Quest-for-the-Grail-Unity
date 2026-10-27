@@ -37,7 +37,7 @@ public class BattleSystem : MonoBehaviour
     private const string LOSE_MESSAGE = "Your party has been defeated...";
     private const int TURN_DURATION = 2;
     private const int RUN_CHANCE = 50;
-    private const string RUN_AWAY_MESSAGE = "Your party fled..!";
+    private const string RUN_AWAY_MESSAGE = "Your party fled!";
     private const string FAILED_TO_RUN_MESSAGE = "You failed to run away...";
     private const string OVERWORLD_SCENE = "OverworldScene";
 
@@ -196,7 +196,7 @@ public class BattleSystem : MonoBehaviour
             }
             else
             {
-                // we faild to run away
+                // we failed to run away
 
                 // set our bottom text to say we failed
                 bottomText.text = FAILED_TO_RUN_MESSAGE;

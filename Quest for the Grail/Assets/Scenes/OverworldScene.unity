@@ -9426,8 +9426,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   speed: 3
-  anim: {fileID: 0}
-  playerSprite: {fileID: 0}
+  anim: {fileID: 5027377051975839292, guid: 0d9c1526c8baf6dbeaead712a6977b83, type: 3}
+  playerSprite: {fileID: 2718322654943407375, guid: 0d9c1526c8baf6dbeaead712a6977b83, type: 3}
   grassLayer:
     serializedVersion: 2
     m_Bits: 64
