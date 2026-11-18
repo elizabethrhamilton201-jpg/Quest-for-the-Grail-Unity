@@ -63,7 +63,7 @@ public class BattleSystem : MonoBehaviour
         bottomTextPopUp.SetActive(true);
 
         // loop through all our battlers
-            // do their appropriate action#
+            // do their appropriate action
 
             for (int i = 0; i < allBattlers.Count; i++)
             {
@@ -125,7 +125,7 @@ public class BattleSystem : MonoBehaviour
 
                 if(enemyBattlers.Count <= 0)
                 {
-                   state = BattleState.Won; 
+                   state = BattleState.Won;
                    bottomText.text = WIN_MESSAGE;
                    yield return new WaitForSeconds(TURN_DURATION);
                    Debug.Log("Go back to overworld scene");

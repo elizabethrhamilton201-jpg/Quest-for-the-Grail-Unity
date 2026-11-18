@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        //Debug.Log("Start called");
         // gets the player's Rigidbody and assigns it to the rb variable
         rb = gameObject.GetComponent<Rigidbody>();
         partyManager = GameObject.FindAnyObjectByType<PartyManager>();
@@ -82,13 +83,14 @@ public class PlayerController : MonoBehaviour
         float z = playerControls.Player.Move.ReadValue<Vector2>().y;
 
         // outputs to the console the values of the Vector2/floats
-        //Debug.Log(x + "," + z);
+        // Debug.Log(x + "," + z);
+        // Debug.Log(partyManager.playerPosition);
 
         // normalizes the values of the Vector2 outputs so that they are flat values (e.g. 1, -1 etc) to smooth out movement. Assigns the floats x and z to the values of the Vector3. 
         movement = new Vector3(x, 0, z).normalized;
 
         // sets bool to true if movement values are not zero. This should mean that whenever the sprite walks, the animation transitions from idle to walk
-        anim.SetBool(IS_WALK_PARAM, movement!=Vector3.zero);
+        anim.SetBool(IS_WALK_PARAM, movement != Vector3.zero);
 
         // if player moves left, flips sprite
         if(x!= 0 && x<0)
@@ -111,7 +113,7 @@ public class PlayerController : MonoBehaviour
         // uses an overlap sphere to detect if player is in grass triggers (gets array of how many colliders we are colliding with)
         Collider[] colliders = Physics.OverlapSphere(transform.position, 1, grassLayer);
         // sets bool depending on whether or not player is moving in grass layer (if the player is colliding with at least one collider and is giving movement input, we must be movingInGrass)
-        movingInGrass = colliders.Length!=0 && movement !=Vector3.zero;
+        movingInGrass = colliders.Length != 0 && movement != Vector3.zero;
 
         // if we are moving in grass, start a timer
         if(movingInGrass == true)
@@ -125,8 +127,6 @@ public class PlayerController : MonoBehaviour
 
                 if(stepsInGrass >= stepsToEncounter)
                 {
-                    //Debug.Log("Change Scene Now");
-
                     partyManager.SetPosition(transform.position);
 
                     SceneManager.LoadScene(BATTLE_SCENE);

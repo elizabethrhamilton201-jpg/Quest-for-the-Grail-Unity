@@ -8202,10 +8202,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PartyManager
   allMembers:
-  - {fileID: 11400000, guid: a86c828ea449111369275613f60588bd, type: 2}
+  - {fileID: 11400000, guid: 85c4630c458aec3a49648cb0551cabc3, type: 2}
   - {fileID: 11400000, guid: 767cf20efa330a785b6b25f68859e4b2, type: 2}
   currentParty: []
-  defaultPartyMember: {fileID: 11400000, guid: a86c828ea449111369275613f60588bd, type: 2}
+  defaultPartyMember: {fileID: 11400000, guid: 85c4630c458aec3a49648cb0551cabc3, type: 2}
 --- !u!4 &1352387150
 Transform:
   m_ObjectHideFlags: 0
@@ -9426,8 +9426,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   speed: 3
-  anim: {fileID: 5027377051975839292, guid: 0d9c1526c8baf6dbeaead712a6977b83, type: 3}
-  playerSprite: {fileID: 2718322654943407375, guid: 0d9c1526c8baf6dbeaead712a6977b83, type: 3}
+  anim: {fileID: 5027377051975839292, guid: 25a309acf968b37069185697ea16c051, type: 3}
+  playerSprite: {fileID: 2718322654943407375, guid: 25a309acf968b37069185697ea16c051, type: 3}
   grassLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -9444,7 +9444,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 1, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

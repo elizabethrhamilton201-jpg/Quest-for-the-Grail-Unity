@@ -24,9 +24,10 @@ public class PartyManager : MonoBehaviour
         else
         {
             instance = this.gameObject;
-            AddMemberToPartyByName(defaultPartyMember.MemberName);
+            
         }
-        
+
+        AddMemberToPartyByName(defaultPartyMember.MemberName);
         DontDestroyOnLoad(gameObject);
     }
 
@@ -77,11 +78,13 @@ public class PartyManager : MonoBehaviour
 
     public void SetPosition(Vector3 position)
     {
+        // Debug.Log("Position Set");
         playerPosition = position;
     }
 
     public Vector3 GetPosition()
     {
+        // Debug.Log("Position got");
         return playerPosition;
     }
 }

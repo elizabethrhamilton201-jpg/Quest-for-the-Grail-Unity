@@ -1,0 +1,11 @@
+<linker>
+	<assembly fullname="Assembly-CSharp" ignoreIfMissing="1">
+		<type fullname="BattleSystem">
+			<method name="SelectEnemy"/>
+			<method name="SelectEnemy"/>
+			<method name="SelectEnemy"/>
+			<method name="SelectRunAction"/>
+			<method name="ShowEnemySelectionMenu"/>
+		</type>
+	</assembly>
+</linker>
